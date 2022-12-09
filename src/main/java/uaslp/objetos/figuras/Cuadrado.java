@@ -1,5 +1,6 @@
 package uaslp.objetos.figuras;
 
+
 public class Cuadrado extends Figura{
 
     private double lado;
@@ -23,7 +24,11 @@ public class Cuadrado extends Figura{
     }
 
 
-    public double getArea() {
+    public double getArea() throws LadoNoProvistoException {
+
+        if( lado==0){
+                throw new LadoNoProvistoException();
+        }
         return lado*lado;
     }
 

@@ -8,6 +8,15 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import uaslp.objetos.figuras.BaseNoProvistaException;
+import uaslp.objetos.figuras.AlturaNoProvistaException;
+
+import uaslp.objetos.figuras.DatoFaltanteException;
+import uaslp.objetos.figuras.NumeroInvalidoDeLados;
+import uaslp.objetos.figuras.LadoNoProvistoException;
+
+
+
 public class Exercise3 {
     // CREA LAS CLASES Y METODOS NECESARIOS PARA QUE EL TEST SE EJECUTE CORRECTAMENTE
 
@@ -33,8 +42,8 @@ public class Exercise3 {
         Triangulo triangulo = new Triangulo();
 
         // When:
+       // Exception ex = Assertions.assertThrows(BaseNoProvistaException.class, () -> triangulo.getArea());
         Exception ex = Assertions.assertThrows(BaseNoProvistaException.class, () -> triangulo.getArea());
-
         assertTrue(ex instanceof DatoFaltanteException);
     }
 
