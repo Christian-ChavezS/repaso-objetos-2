@@ -1,8 +1,7 @@
 package uaslp.objetos.escuela;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -29,6 +28,7 @@ public class Exercise5 {
         assertThat(promedio).isEqualTo(8.7);
         verify(evaluadorDePromedios).evalua(calificaciones);
         verifyNoMoreInteractions(evaluadorDePromedios);
+        //verifyNoMoreInteractions(evaluadorDePromedios);
 
     }
 
