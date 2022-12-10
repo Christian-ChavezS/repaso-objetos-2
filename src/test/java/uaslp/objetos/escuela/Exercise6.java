@@ -3,6 +3,7 @@ package uaslp.objetos.escuela;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
 public class Exercise6 {
 
@@ -25,4 +26,93 @@ public class Exercise6 {
         assertThat(Dependencia2.class).isInterface();
         assertThat(Dependencia3.class).isInterface();
     }
+
+
+
+    @Test
+    public void validarAMayorB()
+    {
+
+        int a = 10;
+
+        int b = 1;
+
+        String mensaje = "a > b";
+
+
+        Dependencia1 dependencia1 = Mockito.mock(Dependencia1.class);
+
+        Dependencia2 dependencia2 = Mockito.mock(Dependencia2.class);
+
+        Dependencia3 dependencia3 = Mockito.mock(Dependencia3.class);
+
+
+        AlgoritmoX algoritmoX = new AlgoritmoX(dependencia1, dependencia2, dependencia3);
+
+
+        algoritmoX.algoritmoACubrir(a,b,mensaje);
+
+
+        Mockito.verify(dependencia3).send(a,b);
+
+        Mockito.verify(dependencia3).recover();
+    }
+
+
+    @Test
+    public void validarAMenorB(){
+
+        int a = 2;
+
+        int b = 7;
+
+
+        String mensaje = " a < b ";
+
+        Dependencia1 dependencia1 = Mockito.mock(Dependencia1.class);
+
+        Dependencia2 dependencia2 = Mockito.mock(Dependencia2.class);
+
+        Dependencia3 dependencia3 = Mockito.mock(Dependencia3.class);
+
+
+        AlgoritmoX algoritmoX = new AlgoritmoX(dependencia1,dependencia2,dependencia3);
+
+        algoritmoX.algoritmoACubrir(a,b,mensaje);
+        Mockito.verify(dependencia2).print(a,mensaje);
+        Mockito.verify(dependencia3).recover();
+    }
+
+
+
+    @Test
+    public void validarAIgualB(){
+
+        int a = 10;
+
+        int b = 10;
+
+        String mensaje = " a = b ";
+
+
+        Dependencia1 dependencia1 = Mockito.mock(Dependencia1.class);
+
+        Dependencia2 dependencia2 = Mockito.mock(Dependencia2.class);
+
+        Dependencia3 dependencia3 = Mockito.mock(Dependencia3.class);
+
+
+        AlgoritmoX algoritmoX = new AlgoritmoX(dependencia1, dependencia2, dependencia3);
+
+        algoritmoX.algoritmoACubrir(a,b,mensaje);
+
+
+        Mockito.verify(dependencia1).save(mensaje);
+
+        Mockito.verify(dependencia3).recover();
+    }
+
+
+
+
 }
