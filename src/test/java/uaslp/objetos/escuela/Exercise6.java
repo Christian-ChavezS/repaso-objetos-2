@@ -5,6 +5,8 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
+import javax.swing.plaf.synth.SynthOptionPaneUI;
+
 public class Exercise6 {
 
      /*
@@ -116,3 +118,4 @@ public class Exercise6 {
 
 
 }
+//.
